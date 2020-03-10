@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
 
     <title>Title</title>
 </head>
+
 <body style="background: #f5f6ff;">
     <div class="container mt-5">
         <h3>Dashboard</h3>
@@ -23,6 +25,7 @@
         </table>
     </div>
 </body>
+
 </html>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -34,51 +37,51 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
 <script>
-    var one = [20,22,23,24,33];
-    var counter = 0;
-    function calcArr(){
-        len = one.length;
-        for(i=0; i<len;i++){
-            if(i==0){
-                one[0] = one[0] + 1;
-            } else if (i==1) {
-                one[1] = one[1] - 1;
-            } else if (i == 2) {
-                one[2] = one[2] + 2;
-            } else if (i == 3) {
-                one[3] = one[3] - 2;
-            } else if (i == 4) {
-                one[4] = one[4] + 3;
-            }
-        }
-    }
-
-    function arrayVal() {
-        for (let i = 0; i < one.length; i++) {
-            $(".val").append(
-                `<tr>
-                <td>Value${one[i]}</td>
-                <td class="tval">${one[i]}</td>
-            </tr>`);
-
-            if (one[i] < 15 || one[i] > 35) {
-                alert(one[i]);
-            }
-        }
-        calcArr();
-        console.log(counter++);
-        
-    }
-    $(document).ready(function(){
+    var el = [20, 21, 22, 23, 34];
+    $(document).ready(function () {
         var ctime = new Date().getTime();
         var interval = setInterval(function () {
             if (new Date().getTime() - ctime > 120000) {
                 clearInterval(interval);
                 return;
             }
-            $(".val").empty().append(arrayVal());
-        }, 5000);     
-        
+            $(".val").empty().append(showArr());
+        }, 5000);
+
     })
-    
+
+    var counter = 0;
+    function Arr() {
+        for (i = 0; i < el.length; i++) {
+            if (i == 0) {
+                el[0] = el[0] + 1;
+            } else if (i == 1) {
+                el[1] = el[1] - 1;
+            } else if (i == 2) {
+                el[2] = el[2] + 2;
+            } else if (i == 3) {
+                el[3] = el[3] - 2;
+            } else if (i == 4) {
+                el[4] = el[4] + 3;
+            }
+        }
+    }
+
+    function showArr() {
+        for (let i = 0; i < el.length; i++) {
+            $(".val").append(
+                `<tr>
+                <td>Value${el[i]}</td>
+                <td class="tval">${el[i]}</td>
+            </tr>`);
+
+            if (el[i] < 15 || el[i] > 35) {
+                alert(el[i]);
+            }
+        }
+        Arr();
+        console.log(counter++);
+    }
+
+
 </script>
